@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace MathsClassAss
 {
-   public static class MathClass  //class MathClass
+  public static class MathClass  //class MathClass
     {
+       
         //Maths Addtion
         public static int Addition(int value1, int value2) //public int Addition(int value1, int value2)
         {
@@ -33,7 +34,7 @@ namespace MathsClassAss
         //Maths Divsion
         public static int Division(int value1, int value2)
         {
-            int divide = value1 - value2;
+            int divide = value1 / value2;
             return (divide);
         }
 

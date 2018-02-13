@@ -10,51 +10,78 @@ namespace MathsClassAss
     {
         static void Main(string[] args)
         {
-            /*
-         
-2) Modify the program from Exercise 1 so that you do not have to create an instance of Math to call the four methods
+        /*
+
+Main Method
 */
-            DoAgain:
+        DoAgain:
+            Console.WriteLine("WELCOME TO MATHEMATICS BASIC OPERATION CLASS\n");
             Console.WriteLine("Enter first value");
             int v1 = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter second value");
             int v2 = Convert.ToInt32(Console.ReadLine());
-
-            int result=0;
-            //MathClass MC = new MathClass(); 
-                       
+            int result = 0;
             char select;
 
-           
-                Console.Write("Enter A for Addition, S for subtraction, M for multiplication, D for divide");
-                select = Convert.ToChar(Console.ReadLine());
-            
-                switch (select)
-                {
-                    case 'a':
-                    case 'A':
-                        
-                    result = MathClass.Addition(v1, v2);// result= MC.Addition(v1,v2);
+            Console.Write("Enter S for static and N for non-static : ");
+            select = Convert.ToChar(Console.ReadLine());
+            switch (select)
+            {
+                case 'S':
+                case 's':
+                    MathsNon_static calc = new MathsNon_static(v1,v2);
+                    int i;
+                    Console.WriteLine("select 1) for addition 2) subtraction 3)multiplication 4)division");
+                    i = Convert.ToChar(Console.ReadLine());
+                    if (i == '1')
+                    {
+                       result= calc.Addition(v1, v2);
+                    }
+                    else if (i == '2')
+                    {
+                        result = calc.Subtract(v1, v2);
+                    }
+                    else if (i == '3')
+                    {
+                        result = calc.Multiply(v1, v2);
+                    }
+                    else if (i == '4')
+                    {
+                        result = calc.Division(v1, v2);
+                    }
+                    else
+                    {
+                        Console.Write("Wrong input");
+                    }
                     break;
-
-                    case 's':
-                    case 'S':
-                    result = MathClass.Subtract(v1, v2);
-                        break;
-                    case 'm':
-                    case 'M':
-                    result = MathClass.Multiply(v1, v2);
-                        break;
-                    case 'd':
-                    case 'D':
-                    result = MathClass.Division(v1, v2);
-                        break;
-                    default:
-                        Console.WriteLine("Default case");
-                        break;
-                }
-  
+                case 'N':
+                case 'n':
+                    char j;
+                    Console.WriteLine("select 1) for addition 2) subtraction 3)multiplication 4)division");
+                    j = Convert.ToChar(Console.ReadLine());
+                    if (j == '1')
+                    {
+                        result = MathClass.Addition(v1, v2);
+                    }
+                    else if (j == '2')
+                    {
+                        result = MathClass.Subtract(v1, v2);
+                    }
+                    else if (j == '3')
+                    {
+                        result = MathClass.Multiply(v1, v2);
+                    }
+                    else if (j == '4')
+                    {
+                        result = MathClass.Division(v1, v2);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid Input");
+                    break;
+            }           
+                    
             Console.WriteLine(result);
             char choice;
             Console.Write("Y to doagain, N to exit");
@@ -62,6 +89,7 @@ namespace MathsClassAss
             
             if(choice=='y'||choice=='Y')
             {
+                Console.Clear();
                 goto DoAgain;
             }
             else if (choice=='N' || choice=='n')
@@ -75,8 +103,6 @@ namespace MathsClassAss
 
             Finish: Console.WriteLine("anykey to exit");
             Console.ReadKey();
-            
-            Console.ReadLine();
 
         }
         
